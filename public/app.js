@@ -1,4 +1,5 @@
-import { createApp, ref } from "https://unpkg.com/vue@3.0.5/dist/vue.esm-browser.js";
+// import { createApp, ref } from "https://unpkg.com/vue@3.0.5/dist/vue.esm-browser.js";
+import { createApp, ref } from "https://unpkg.com/vue@3.0.5/dist/vue.esm-browser.prod.js";
 
 createApp({
 	setup() {
