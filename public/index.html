@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="module" src="app.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<form v-if="!signedIn" @submit.prevent="login()">
+			<input v-model="name" type="text" />
+			<button type="submit">Enter</button>
+		</form>
+		<div v-if="signedIn">
+			<form @submit.prevent="sendMessage()">
+				<input v-model="msg" type="text" />
+				<button type="submit">Send</button>
+			</form>
+			<ul>
+				<li v-for="(message, index) in messages" :key="index">
+					{{ message.user }}: <br />
+					{{ "	" }} {{ message.content }}
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
