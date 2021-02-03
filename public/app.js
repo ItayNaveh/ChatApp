@@ -40,6 +40,7 @@ createApp({
 		const sendMessage = () => {
 			if (socket) {
 				// socket.emit("message", { user: name.value, content: msg.value });
+				console.log("sending as", user.value);
 				socket.emit("message", {
 					user: {
 						name: user.value.name ?? user.value.login,
