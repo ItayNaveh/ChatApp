@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 import express from "express";
 import { Server } from "http";
 import { Server as SocketServer } from "socket.io";
@@ -34,7 +35,7 @@ app.get("/auth", async(req, res) => {
 		<h1>Signing In...</h1>
 		<script>
 			if (window.opener) {
-				window.opener.postMessage({ user: ${JSON.stringify(userData)} }, "http://localhost:3000"); //TODO: change the domain
+				window.opener.postMessage({ user: ${JSON.stringify(userData)} }, "https://github-chat-realtime.herokuapp.com"); // "http://localhost:3000"); //TODO: change the domain
 			}
 			window.close();
 		</script>

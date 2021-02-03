@@ -1,0 +1,28 @@
+[v-cloak] > * { display:none }
+[v-cloak]::before { content: "loading…" }
+
+.messages {
+	list-style: none;
+}
+
+.message {
+	border-left: solid black 2px;
+	margin-bottom: 1em;
+}
+
+.sender {
+	display: flex;
+	align-items: center;
+	align-self: flex-start;
+}
+
+.sender-profile {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin: 0 1em;
+}
+
+.content {
+	margin-left: 4em;
+}

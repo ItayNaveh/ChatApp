@@ -9,20 +9,25 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id="app">
-		<form v-if="!signedIn" @submit.prevent="login()">
+	<div id="app" v-cloak>
+		<!-- <form v-if="!signedIn" @submit.prevent="login()">
 			<input v-model="name" type="text" />
 			<button type="submit">Enter</button>
-		</form>
-		<div v-if="signedIn">
+		</form> -->
+		<button v-if="!loggedIn" @click="login()">Sign In With Github</button>
+
+		<div v-if="loggedIn">
 			<form @submit.prevent="sendMessage()">
 				<input v-model="msg" type="text" />
 				<button type="submit">Send</button>
 			</form>
-			<ul>
-				<li v-for="(message, index) in messages" :key="index">
-					{{ message.user }}: <br />
-					{{ "	" }} {{ message.content }}
+			<ul class="messages">
+				<li class="message" v-for="(message, index) in messages" :key="index">
+					<div class="sender">
+						<img class="sender-profile" :src="message.user.avatar_url" alt="Profile Picture">
+						<span class="sender-name">{{ message.user.name }}:</span> <br />
+					</div>
+					<span class="content">{{ message.content }}</span>
 				</li>
 			</ul>
 		</div>
