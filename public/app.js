@@ -25,7 +25,7 @@ createApp({
 					loggedIn.value = true;
 					socket = io();
 					socket.on("message", (msg) => {
-						console.log("Recived msg", msg);
+						// console.log("Recived msg", msg);
 						messages.value.unshift(msg);
 					});
 				}
@@ -40,7 +40,6 @@ createApp({
 		const sendMessage = () => {
 			if (socket) {
 				// socket.emit("message", { user: name.value, content: msg.value });
-				console.log("sending as", user.value);
 				socket.emit("message", {
 					user: {
 						name: user.value.name ?? user.value.login,
