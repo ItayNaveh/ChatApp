@@ -25,7 +25,7 @@ createApp({
 					loggedIn.value = true;
 					socket = io();
 					socket.on("message", (msg) => {
-						// console.log("Recived msg", msg);
+						console.log("Recived msg", msg);
 						messages.value.unshift(msg);
 					});
 				}
